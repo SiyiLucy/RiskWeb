@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="/static/css/style.css">
+    <title>Stock Data</title>
+</head>
+<body>
+<nav class="shell">
+        <ul class="buttons">
+            <li class="li" ><a href="{% url 'drag' %}">Rank</a>
+
+                <ul>
+                    <li>注意事项：</li>
+                    <li>Evaluation</li>
+                    <li>Shopkeeper</li>
+                    <li>Management</li>
+                </ul>
+            </li>
+
+            <li class="li" ><a href="{% url 'match' %}">Match</a>
+                <ul>
+                    <li>Warehouse    </li>
+                    <li>deliver goods</li>
+                    <li>stock        </li>
+                    <li>mail         </li>
+                    <li>return goods </li>
+                </ul>
+            </li>
+
+            <li class="li" ><a href="{% url 'stock_chart' %}">Chart</a>
+                <ul>
+                    <li>Release baby   </li>
+                    <li>Posting Details</li>
+                    <li>Shop decoration</li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+        <div class="animation"><img src="/static/img/pig.png" alt="pig" style="width:300px;height:auto"></div>
+<h1>Stock Data</h1>
+    <div id="chart"></div>
+    <form id="search-form">
+       <label for="ts_code">Fund Code:</label><br>
+        <select id="ts_code" name="ts_code">
+            <option value="">请选择</option>
+        </select><br>
+        <label for="start_date">Start Date:</label><br>
+        <input type="date" id="start_date" name="start_date"><br>
+        <label for="end_date">End Date:</label><br>
+        <input type="date" id="end_date" name="end_date"><br>
+        <input type="submit" value="Search">
+    </form>
+
+
+<!-- 引入 jQuery 库 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% load static %}
+<script src="{% static '/js/echarts.js' %}"></script>
+<script src="{% static '/js/chart.js' %}"></script>
+<script src="{% static '/js/stock.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.draggable {
+  width: 100px;
+  height: 30px;
+  background-color: #fce4f2;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  cursor: move;
+}
+
+.droppable {
+  width: 120px;
+  height: 50px;
+  background-color: #f9cde7;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.droppable-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* 添加样式 */
+.draggable, .droppable {
+  border-radius: 5px;
+}
+
+.droppable {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+.draggable.hide {
+  opacity: 0.5;
+}
+
+.draggable.hide:after {
+  content: "正在拖拽中...";
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.highlight {
+  background-color: #f07fc2;
+}
+</style>
+
+
+</head>
+<body>
+<form id="dataForm" method="POST" action="{% url 'extract_content' %}">
+  {% csrf_token %}
+  <input type="hidden" name="droppable1Content" id="droppable1ContentInput" value="">
+  <input type="hidden" name="droppable2Content" id="droppable2ContentInput" value="">
+  <input type="hidden" name="droppable3Content" id="droppable3ContentInput" value="">
+  <input type="hidden" name="droppable4Content" id="droppable4ContentInput" value="">
+  <input type="hidden" name="droppable5Content" id="droppable5ContentInput" value="">
+  <input type="hidden" name="droppable6Content" id="droppable6ContentInput" value="">
+  <input type="hidden" name="droppable7Content" id="droppable7ContentInput" value="">
+  <input type="hidden" name="droppable8Content" id="droppable8ContentInput" value="">
+  <input type="hidden" name="droppable9Content" id="droppable9ContentInput" value="">
+  <input type="hidden" name="droppable10Content" id="droppable10ContentInput" value="">
+  <button type="submit">提交</button>
+</form>
+
+<div class="draggable" draggable="true">x1</div>
+<div class="draggable" draggable="true">x2</div>
+<div class="draggable" draggable="true">x3</div>
+<div class="draggable" draggable="true">x4</div>
+<div class="draggable" draggable="true">x5</div>
+<div class="draggable" draggable="true">x6</div>
+<div class="draggable" draggable="true">x7</div>
+<div class="draggable" draggable="true">x8</div>
+<div class="draggable" draggable="true">x9</div>
+<div class="draggable" draggable="true">x10</div>
+
+<div class="droppable-container">
+  <div class="droppable" id="droppable1">放置区域1</div>
+  <div class="droppable" id="droppable2">放置区域2</div>
+  <div class="droppable" id="droppable3">放置区域3</div>
+  <div class="droppable" id="droppable4">放置区域4</div>
+  <div class="droppable" id="droppable5">放置区域5</div>
+  <div class="droppable" id="droppable6">放置区域6</div>
+  <div class="droppable" id="droppable7">放置区域7</div>
+  <div class="droppable" id="droppable8">放置区域8</div>
+  <div class="droppable" id="droppable9">放置区域9</div>
+  <div class="droppable" id="droppable10">放置区域10</div>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% load static %}
+<script src="{% static '/js/drag.js' %}"></script>
+</body>
+</html>

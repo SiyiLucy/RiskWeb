@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="/static/css/style.css">
+<title>指标选择</title>
+<style>
+label {
+display: block;
+margin-bottom: 10px;
+}
+
+#button-container {
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+padding: 10px;
+background-color: #f0f0f0;
+}
+.hidden-button {
+  display: none;
+}
+</style>
+</head>
+<body>
+<nav class="shell">
+        <ul class="buttons">
+            <li class="li" ><a href="{% url 'drag' %}">Rank</a>
+
+                <ul>
+                    <li>注意事项：</li>
+                    <li>Evaluation</li>
+                    <li>Shopkeeper</li>
+                    <li>Management</li>
+                </ul>
+            </li>
+
+            <li class="li" ><a href="{% url 'match' %}">Match</a>
+                <ul>
+                    <li>Warehouse    </li>
+                    <li>deliver goods</li>
+                    <li>stock        </li>
+                    <li>mail         </li>
+                    <li>return goods </li>
+                </ul>
+            </li>
+
+            <li class="li" ><a href="{% url 'stock_chart' %}">Chart</a>
+                <ul>
+                    <li>Release baby   </li>
+                    <li>Posting Details</li>
+                    <li>Shop decoration</li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+<form id="dataForm" method="POST" action="{% url 'match_data' %}">
+  {% csrf_token %}
+  <input type="hidden" name="match1Content" id="match1ContentInput" value="">
+  <input type="hidden" name="match2Content" id="match2ContentInput" value="">
+  <input type="hidden" name="match3Content" id="match3ContentInput" value="">
+    <input type="hidden" name="match4Content" id="match4ContentInput" value="">
+  <input type="hidden" name="match5Content" id="match5ContentInput" value="">
+  <input type="hidden" name="match6Content" id="match6ContentInput" value="">
+    <input type="hidden" name="match7Content" id="match7ContentInput" value="">
+  <input type="hidden" name="match8Content" id="match8ContentInput" value="">
+  <input type="hidden" name="match9Content" id="match9ContentInput" value="">
+    <input type="hidden" name="match10Content" id="match10ContentInput" value="">
+  <input type="hidden" name="level1Content" id="level1ContentInput" value="">
+<input type="hidden" name="level2Content" id="level2ContentInput" value="">
+<input type="hidden" name="level3Content" id="level3ContentInput" value="">
+  <input type="hidden" name="level4Content" id="level4ContentInput" value="">
+<input type="hidden" name="level5Content" id="level5ContentInput" value="">
+<input type="hidden" name="level6Content" id="level6ContentInput" value="">
+  <input type="hidden" name="level7Content" id="level7ContentInput" value="">
+<input type="hidden" name="level8Content" id="level8ContentInput" value="">
+<input type="hidden" name="level9Content" id="level9ContentInput" value="">
+  <input type="hidden" name="level10Content" id="level10ContentInput" value="">
+    <button type="submit">提交</button>
+</form>
+<h1>Index Selection</h1>
+<form>
+<div class="indicator">
+
+</div>
+
+<div class="animation"><img src="/static/img/pig.png" alt="pig" style="width:300px;height:auto"></div>
+<div id="button-container">
+    <input type="button" value="+" onclick="addIndicator()">
+    <input type="button" value="确定" onclick="submitForm(event)">
+</div>
+</form>
+<!-- 引入 jQuery 库 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% load static %}
+<script src="{% static '/js/match2.js' %}"></script>
+</body>
+</html>

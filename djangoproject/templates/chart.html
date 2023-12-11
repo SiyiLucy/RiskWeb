@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <titl1>login</titl1>
+</head>
+<body>
+this is chart page
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">line chart</div>
+        <div class="panel-body">
+            picture <img src="{% static 'img/1.jpg' %}" alt="">
+            <div id="m1" style="width:600px;height:400px"></div>
+        </div>
+    </div>
+</div>
+{% load static %}
+<script src="{% static 'admin/js/echarts.js' %}"></script>
+<script type="text/javascript">
+var myChart=echarts.init(document.getElementById('m1'));
+var option={
+    title:{
+    text:'ECharts 入门案例'
+    },
+    tooltip:{},
+    legend:{
+    data:['销量']
+    },
+    xAxis:{
+    data:['衬衫','羊毛衫','袜子','高根结','蝴蝶结']
+    },
+    yAxis:{},
+    series:[
+        {
+        name:'销量',
+        type:'bar',
+        data:[5,20,36,10,25]
+        }
+    ]
+};
+myChart.setOption(option);
+</script>
+</body>
+</html>
