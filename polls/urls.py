@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+
 urlpatterns=[
     path('',views.toLogin_view),
     path('index/',views.Login_view),
@@ -25,5 +26,4 @@ urlpatterns=[
     path('wait/', views.wait,name="wait"),
     path('wait2/', views.wait2,name="wait2"),
     path('resultmatch/', views.resultmatch,name="resultmatch"),
-
 ]
