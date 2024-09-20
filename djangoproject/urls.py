@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from . import views
+from djangoproject.views import home
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("polls/", include('polls.urls')),
-    path('credit/', include('credit.urls')),
-    path('', views.home_view, name='home'),
+    path('credit/', include('credit_app.urls')),
+    path('', home, name='home'),
 ]
 
 if settings.DEBUG:
